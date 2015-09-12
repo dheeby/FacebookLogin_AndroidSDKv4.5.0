@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FacebookLoginExample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="login_temp_message">Hello</string>
+    <string name="facebook_app_id">1495406994114542</string>
+</resources>
