@@ -63,7 +63,13 @@ public class MainActivityFragment extends Fragment {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
                 accessToken = newToken;
-                Log.i("AccessToken Changed", accessToken.toString());
+                if (accessToken != null) {
+                    Log.i("AccessToken Changed", accessToken.toString());
+                } else {
+                    Log.i("AccessToken Changed", "User logged out from Facebook");
+                    setWelcomeMessage(null);
+                    Toast.makeText(getActivity(), "Logged out", Toast.LENGTH_SHORT).show();
+                }
             }
         };
         accessTokenTracker.startTracking();
@@ -73,7 +79,9 @@ public class MainActivityFragment extends Fragment {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
                 setWelcomeMessage(newProfile);
-                Log.i("Profile Changed", newProfile.toString());
+                if (newProfile != null) {
+                    Log.i("Profile Changed", newProfile.toString());
+                }
             }
         };
         profileTracker.startTracking();
@@ -181,7 +189,7 @@ public class MainActivityFragment extends Fragment {
             welcomeDisplayMessage.setText("Welcome, " + profile.getName());
             Toast.makeText(getActivity(), "Facebook login success!", Toast.LENGTH_SHORT).show();
         } else {
-            welcomeDisplayMessage.setText("Could not get profile.");
+            welcomeDisplayMessage.setText("Have a Facebook account?");
         }
     }
 }
