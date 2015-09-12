@@ -68,7 +68,7 @@ public class MainActivityFragment extends Fragment {
                 } else {
                     Log.i("AccessToken Changed", "User logged out from Facebook");
                     setWelcomeMessage(null);
-                    Toast.makeText(getActivity(), "Logged out", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Logout success", Toast.LENGTH_SHORT).show();
                 }
             }
         };
